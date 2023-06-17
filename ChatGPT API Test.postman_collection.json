@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "a2815007-2fc2-4b1c-97dc-eac1b56ec725",
+		"name": "ChatGPT API Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24670606"
+	},
+	"item": [
+		{
+			"name": "Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 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",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"model\": \"gpt-3.5-turbo\",\r\n     \"messages\": [{\"role\": \"user\", \"content\": \"Who you are?\"}],\r\n     \"temperature\": 0.7\r\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.openai.com/v1/chat/completions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"chat",
+						"completions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create image",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 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",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prompt\": \"a white siamese cat\",\r\n    \"n\": 1,\r\n    \"size\": \"1024x1024\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.openai.com/v1/images/generations",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"images",
+						"generations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate random words",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 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",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"prompt\": \"Generate a random sentence\",\r\n  \"max_tokens\": 50,\r\n  \"temperature\": 0.7\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.openai.com/v1/engines/davinci/completions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"engines",
+						"davinci",
+						"completions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate random words by get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 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",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.openai.com/v1/engines/davinci/completions?prompt=Generate%20a%20random%20sentence&max_tokens=50&temperature=0.7",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"engines",
+						"davinci",
+						"completions"
+					],
+					"query": [
+						{
+							"key": "prompt",
+							"value": "Generate%20a%20random%20sentence"
+						},
+						{
+							"key": "max_tokens",
+							"value": "50"
+						},
+						{
+							"key": "temperature",
+							"value": "0.7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Вопрос-ответ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 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",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"question\": \"What is the capital of France?\",\r\n  \"context\": \"The Eiffel Tower is a wrought iron lattice tower on the Champ de Mars in Paris, France. It is named after the engineer Gustave Eiffel, whose company designed and built the tower.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.openai.com/v1/engines/davinci/question-answering",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openai",
+						"com"
+					],
+					"path": [
+						"v1",
+						"engines",
+						"davinci",
+						"question-answering"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
